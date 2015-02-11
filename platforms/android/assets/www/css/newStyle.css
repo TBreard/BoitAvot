@@ -1,0 +1,41 @@
+/** Deuxieme thème pour l'application**/
+::-webkit-scrollbar-thumb {     
+    background: #769600 !important;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5) !important; 
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8) !important; 
+    border-radius: 0px;
+}
+*{
+	border-radius: 0px !important;
+	color:white;
+}
+html, body{
+	background : #ff8900;
+}
+
+.selected, .menuParams, .valider, .entrerCode, .valider:hover, .valider:active, .autorise{ /*vert */
+	background: #769600 !important;
+}
+.retour, .retour:active, .retour:hover, .retourAccueil{/* bordeaux */
+	background: #8c091e;
+	color:white;
+}
+.menuParams:active, .menuParams:hover, .sel{ /*violet */
+	background: #6b1a6a !important;
+}
+.bigButton, .choixSujet, .suppr, .interdit, .wrong{ /* rouge */
+	background: #db2218;
+}
+.wrong{ /* rouge */
+	background: #db2218 !important;
+}
+input, #ajoutClasse p, #modifClasse p, select, option{
+	color:black !important;
+}
+#progressbar{
+	background: #6b1a6a;
+}

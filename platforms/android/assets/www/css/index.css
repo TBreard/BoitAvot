@@ -1,0 +1,578 @@
+
+/** Contre la selection de texte **/
+*:not(input){
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -webkit-touch-callout: none;
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+
+  /* No support for these yet, use at own risk */
+    user-select: none;          
+}
+
+::-webkit-scrollbar{
+    width: 25px;
+}
+::-webkit-scrollbar-thumb {     
+    background: -webkit-linear-gradient(#519802, #142d0b);     
+    background: linear-gradient( #519802, #142d0b);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    border-radius: 10px;
+}
+
+html, body{
+    text-shadow: 0px 3px 0px rgba( 0, 0, 0, 0.2);
+	width:100%;
+    height:100%; /* pour mettre des height en pourcentages*/
+    background: url("../img/degradechaudbullesopaque.png");
+	/*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    font-family: "Verdana", Verdana, sans-serif;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;  
+
+}
+
+/*** Ecran Logo ***/
+#ecranLogo{
+    width:80%;
+    height:auto;
+    text-align: center;
+}
+
+#title {
+    width:75%;
+}   
+    #iut{
+        position:absolute;
+        bottom:10%;
+        width:15%;
+        left:10%;
+    }
+
+    #deviceready{
+        position:absolute;
+        bottom:15%;
+        left:40%;
+    }
+
+.event {
+    font-size:70%;
+    text-align: center;
+}
+
+.event.listening {
+    display:block;
+}
+
+.event.received {
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+/*** FIN Ecran Logo ***/
+
+.content{
+	font-size: 400%;
+	width: 80%;
+	padding: 10%;
+    margin: 0 auto;
+}
+
+h2{
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -5%;
+}
+
+button{
+    text-shadow: 0px 3px 0px rgba( 0, 0, 0, 0.5);
+    font-size: 1em;
+    background: none repeat scroll 0 0 transparent;
+    border:medium none;
+    color:white;
+    border-radius: 20px;
+    padding: 1% 0 1% 0;
+}
+button:focus {
+    outline:0;
+}
+button:active{
+    box-shadow: 1px 1px 10px #000 inset, 0 1px 0 rgba( 255, 255, 255, 0.4);
+}
+
+/*** ACCUEIL ***/
+#accueil{
+    text-align: center;
+}
+    #params{
+        width: 15%;
+        height: auto;
+        margin-top: -5%;
+        margin-right: -5%;
+        float:right;
+    }
+
+    #accueil button.bigButton{
+        clear:both;
+        width: 100%;
+        margin-top: 5%;
+    }
+
+
+/*** FIN ACCUEIL ***/
+
+/*** PARAMS ***/
+#parametres{
+    text-align: center;
+}
+        .menuParams{
+            background: -webkit-linear-gradient(#9ccf31, #519802, #519802, #9ccf31);
+            background: linear-gradient( #9ccf31, #519802, #519802, #9ccf31);
+            width:90%;
+            margin-top: 2%;
+        }
+            .menuParams:active, .menuParams:hover{
+                /*tons roses*/
+                background: -webkit-linear-gradient(#ff1313, #ff284a, #ff1313);
+                background: linear-gradient(#ff1313, #ff284a, #ff1313);
+            }
+    .codeButton{
+        position: absolute;
+        right:10%;
+        bottom: 10%;
+        padding: 10px;
+    }
+
+    .entrerCode{ /*vert*/
+        padding-top: 2%;
+        text-align: center;
+        border-radius: 25px;
+        background: -webkit-linear-gradient(#519802, #9ccf31);
+        background: linear-gradient( #519802, #9ccf31);
+        color:white;
+    }
+    .wrong{
+        background:-webkit-linear-gradient(#aa4444, #ff0000) !important;
+        background:linear-gradient( #aa4444, #ff0000) !important;
+    }
+    
+
+    .codeParams{ /* boutons de code*/
+        /*tons beiges*/
+        background: -webkit-linear-gradient(#ffdfb1, #ffdec8);
+        background: linear-gradient( #ffdfb1, #ffdec8);
+        /*background-color: #aeadac;*/
+        width: 200px;
+        margin-top: 20px;
+        color:black;
+    }
+
+        .ok{ /* bouton ok*/
+            color: black;
+            margin: 30px 0px 30px 80%;
+        }
+
+    #styleSheet{
+    width: auto;
+    padding: 1%;
+    position: absolute;
+    right:10%;
+    bottom: 10%;
+    }
+/*** FIN PARAMS ***/
+/*** GESTION DE CLASSE ***/
+#ajoutClasse{
+
+}   
+    .modif{
+        float: left;
+        width:45%;
+        text-align: right;
+    }
+        #inputNomClasse{
+            width:100% ;
+        }
+        .modif input{
+            width:75%;
+            margin-top:10%;
+            margin-bottom: 2%;
+
+        }
+        .modif .ajout{
+            background-color: #519802; /* vert */
+            width:80px;
+            height:80px;
+            border-radius: 50px;
+        }
+    .classRight{
+        width:45%;
+        float:right;
+    }
+    .classRight div{
+        font-size: 55%;
+        background-color: white;
+        height:200px;
+        margin-top:5%;
+        overflow-y:auto;
+    }
+        .classRight label{
+            margin-top: 2%;
+            font-size: 75%;
+        }
+#modifClasse{
+}
+
+    #modifClasse .classRight div{
+        height: 450px;
+    }
+
+    select{
+        margin-top: 5%;
+        font-size: 75%;
+        height: 60px;
+        border:1px solid #F5C5C5;
+        border-radius:15px;
+        width:100%;
+        box-shadow:2px 2px 4px #C0C0C0 inset;
+    }
+    .voir{
+        font-size: 75%;
+    }
+    .suppr{
+        width: 100%;
+        margin-top: 4%;
+        padding:2%;
+        background: -webkit-linear-gradient(#aa4444, #ff0000);
+        background: linear-gradient( #aa4444, #ff0000);
+        font-size: 75%;
+
+    }
+/*** FIN GESTION DE CLASSE ***/
+
+/*** SELECTION DU NOMBRE DE SUJETS ***/
+#sujets{
+    text-align: center;
+}
+
+.choixSujet{
+    background: -webkit-linear-gradient(#ff1313, #ff284a, #ff1313);
+    background: linear-gradient(#ff1313, #ff284a, #ff1313);
+    border : 3px #ff284a ridge;
+    padding: 2% 4% 2% 4%;
+}
+
+#boutons{
+    margin-top: 5%;
+    text-align: center;
+}
+/*** FIN SELECTION DU NOMBRE DE SUJETS ***/
+/*** CHOIX DES SUJETS COULEURS ET TITRES ***/
+#sujets{
+    width: 80%;
+    margin: 0 auto;
+}
+input{
+    font-size: 75%;
+    height: 60px;
+    padding:3px;
+    border:1px solid #F5C5C5;
+    border-radius:15px;
+    width:60%;
+    box-shadow:2px 2px 4px #C0C0C0 inset;
+}
+    input:focus{
+        outline: 0;
+    }
+
+.couleurSujet{ /*canvas de couleur*/
+    width : 60px;
+    height: 60px;
+    background-color: black;
+    border-radius : 15px;
+    margin : 0 2% 0 0; 
+    margin-bottom: -3%;
+
+}
+#sujets table{
+    margin-top: 5%;
+}
+
+/*** FIN CHOIX DES SUJETS COULEURS ET TITRES ***/
+#nombreVotant, #demarre_vote, #fin_vote{
+    text-align: center;
+}
+    #choixVotant{
+        margin-top: 4%;
+    }
+    #choixVotant input{
+        width:20%;
+    }
+        .modifNb{
+            padding: 2%;
+        }
+
+/*** CHOIX DES CLASSES ***/
+#listeClass{ 
+    height:400px;
+    overflow-y : auto;
+    margin-bottom: 1%;
+}
+    #listeClass li{
+        margin-bottom: 1%;
+    }
+    #listeClass li button{
+        padding: 0 15px;
+    }
+
+/*** FIN CHOIX DES CLASSES ***/
+
+#voteblanc{
+    width:50%;
+}
+    .autorise{
+        background:-webkit-linear-gradient(#519802, #9ccf31);
+        background:linear-gradient( #519802, #9ccf31);
+    }
+    .interdit{
+        background :-webkit-linear-gradient(#aa4444, #ff0000);
+        background :linear-gradient( #aa4444, #ff0000);
+    }
+/*** VOTE ***/
+#bulletins{
+    text-align: center;
+    font-size: 100%;
+}
+
+.bulletin{
+    border-radius: 15px;
+    margin:1%;
+}
+    .bulletin.select{
+        color: black;
+    }
+/*** FIN VOTE***/
+
+/*** SELECTION DE PRESENTATION DE RESULTATS***/
+.choixResult{
+    display:none;
+}
+
+    #canvasChoix1{
+        display:none;
+        text-align: left;
+    }
+    .choix{
+        height:400px;
+        overflow-y : auto;
+        margin-bottom: 1%;
+        text-align: left;
+        display:table;
+        width:100%;
+    }
+	    .choix .ligne1compt{
+            display:table-row;
+        }
+        .choix .span{
+        	display:table-cell;
+        	padding-left: 20px;
+	    }
+	.canvasCompt{
+		display: table-row;
+	}
+    #ligne2compt{
+		display:table-row;
+	}
+	.vote{
+	 	height: 80px;
+	 	width: 50px;
+	 	border-radius: 45px;
+        margin-bottom: 1%;
+	}
+	.voteCase{
+	 	width: 65px;
+	 	height: 65px;
+	 	border-radius: 50px;
+	}
+
+	#affichageResultatsTableau{
+        height: 400px;
+        overflow-y:auto;
+        margin-bottom: 1%;	
+    }
+		#affichageResultatsTableau table{
+			margin-top: 2%;
+		 	border-collapse:collapse;
+		 	text-align: center;
+		}
+		#affichageResultatsTableau tr{
+			width: auto;
+			height: 75px;
+		}
+		#affichageResultatsTableau td {
+		 	border:3px solid black;
+		 	width:75px;
+		 	padding-top: 4px;
+		}
+/*** FIN SELECTION DE PRESENTATION DE RESULTATS***/
+.selected {
+    border : 3px #519802 groove;
+    background: -webkit-linear-gradient(#9ccf31, #519802, #519802, #9ccf31);
+    background: linear-gradient( #9ccf31, #519802, #519802, #9ccf31);
+    /*background-color:#519802;*/
+}
+.valider, .retour, .retourAccueil{
+    width: 30%;
+    position: absolute;
+    font-weight: bold;
+    box-shadow: 0 0 1px rgba( 0, 0, 0, 0.5), 0 -1px 0 rgba( 255, 255, 255, 0.1);
+    bottom: 10%;
+    /*display: inline-block;*/
+    border-radius:7px;
+
+}
+.valider{
+    color:white;
+    right:10%;
+    background-color: #519802; /* vert */
+    /*padding: 10px;*/
+}
+.valider, .valider:active{
+    background: -webkit-linear-gradient(#519802, #9ccf31);
+    background: linear-gradient( #519802, #9ccf31);
+}
+
+.valider:hover{
+    background: -webkit-linear-gradient(#519802, #142d0b);
+    background: linear-gradient( #519802, #142d0b);
+}
+
+.retour{
+    color:black;
+    /*background-color: lightgray;*/
+    background-color: #ff9f77;
+    left:10%;
+    -webkit-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+            transform: scale(-1, 1);
+}
+.retour, .retour:active{
+    /*background: linear-gradient( lightgray, #666666);*/
+    background: -webkit-linear-gradient(#ff9f77, #ff4f47);
+    background: linear-gradient( #ff9f77, #ff4f47);
+}
+
+.retour:hover{
+    /*background: linear-gradient( lightgray, #ffffff);*/
+    background: -webkit-linear-gradient(#ff9f77, #fe773c);
+    background: linear-gradient( #ff9f77, #fe773c);
+}
+.retourAccueil{
+    color:black;
+    /*background-color: lightgray;*/
+    background-color: #ff9f77;
+    left:10%;
+    font-size: 60%;
+    font-weight:bold !important;
+} 
+    
+.demarre_vote {
+    background-color: #ff284a;
+}
+
+.ecran_de_vote{
+    border : 3px #519802 groove;
+    background-color:#519802;
+}
+
+.bigButton {
+    background: -webkit-linear-gradient(#ff284a, #ff1313, #ff284a);
+    background: linear-gradient( #ff284a, #ff1313, #ff284a);
+    background-color: #ff284a;
+    padding : 5%;
+    margin-top: 5%;
+}
+
+/*
+*   Numeric input for keypad
+*
+*/
+#numericInput{
+    position:relative;
+    left: 50%;      
+    bottom:15%;
+    width:15%;
+    display:none;       
+}
+
+#keypad{
+    width:500px;
+    height:230px; 
+}
+
+.key{
+    border:solid 1px black;
+    vertical-align: middle;
+    background: -webkit-linear-gradient(#ffdfb1, #ffdec8);
+    background: linear-gradient( #ffdfb1, #ffdec8);
+    text-align:center;
+    font-weight:bold;
+    font-size: 300%;
+    color:black;
+}
+.key:hover{
+    background: lightgray;
+}
+.key:active{
+    background-color:red;
+}
+
+.sel{
+    background: -webkit-linear-gradient(#ff9f77, #ff4f47);
+    background: linear-gradient( #ff9f77, #ff4f47);
+}
+.classSelect {
+    color : black;
+    background-color : white;
+}
+
+.hasBeenSelected {
+    color : black;
+    background-color: red;
+}
+
+#progressbar{
+    background: -webkit-linear-gradient(#ff9f77, #ff4f47);
+    background: linear-gradient( #ff9f77, #ff4f47);
+    position: absolute;
+    bottom:15%;
+    left:10%;
+    width: 400px;
+}
+
+#supprEleveDyna .select{
+    background-color: white;
+    color: black;
+}

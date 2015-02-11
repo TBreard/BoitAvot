@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=yes" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, target-densitydpi=high-dpi, user-scalable=0">
+        <meta name="msapplication-tap-highlight" content="no" />
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel='stylesheet' type='text/css' href='css/index.css' />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
+
+        <title>BoitAvot'</title>
+    </head>
+    <body>
+        <div id="ecranLogo" class="content">
+                <img id="title" src="./img/title2.png" />
+                    <div id="deviceready" class="blink">
+                        <p class="event listening">Tapez pour continuer</p>
+                        <p class="event received">Tapez pour continuer</p>
+                    </div>
+            <img id="iut" src="./img/logo_info_couleur.png">
+        </div>
+
+        <div id="accueil" class="content">
+            <img id="params" class="navigation" go="codeParams"  src="./img/param.png" />
+            <button class="navigation bigButton" go="selectionClass">Sélectionner une classe</button>
+
+            <button class="navigation valider" go="nombreVotant">Passer</button>
+
+            <action name="initialisation" />
+        </div>
+
+        <div id="codeParams" class="content">
+            <div class="entrerCode" >
+                <h3>Entrez le code</h3>
+                <button class="codeParams firstCode">0</button>
+                <button class="codeParams">0</button>
+                <button class="codeParams">0</button>
+                <button class="codeParams lastCode">0</button><br />
+                <button class="ok">OK</button>
+                <button class="navigation retour" go="accueil">&#10143;</button>
+            </div>
+        </div>
+
+        <div id="parametres" class="content">
+            <h2>Paramètres</h2>
+            <button class="navigation menuParams" go="ajoutClasse">Ajouter une classe</button>
+            <button class="navigation menuParams" go="modifClasse">Modifier une classe</button>
+            <button class="navigation menuParams" go="changeCodeParams">Changer le code</button>
+            <button id='styleSheet' class="menuParams">Changer le thème</button>
+
+            <button class="navigation retour" go="accueil">&#10143;</button>
+        </div>
+
+        <div id="ajoutClasse" class="content">
+            <h2>Ajouter une classe</h2>
+            <div class="modif">
+                <input type="text" id='inputNomClasse' placeholder="nom de la classe" onkeyup="validate(this)"></input>
+                <input type="text" id='inputNomEleve' placeholder="ajouter un élève" onkeyup="validate(this)"></input>
+                <button id="buttonAjoutEleve" class="rond ajout">+</button>
+            </div>
+            <div class="classRight">
+                <label>Liste des élèves</label>
+                
+                <div class="liste"></div>
+            </div>
+            <button class="valider validerClasse" go="parametres">Valider</button>
+            <button class="navigation retour" go="parametres">&#10143;</button>
+        </div>    
+
+        <div id="modifClasse" class="content">
+            <h2>Modifier <span class="classe">classe</span></h2>
+            <div class="modif">
+                <select type="text" id="listeSelectClasse">
+
+                </select>
+                <input type="text" placeholder="ajouter élève" onkeyup="validate(this)"></input>
+                <button class="rond ajout" id="ajouterEleve">+</button>
+                <button class='navigation suppr' id="supprimerEleve" go="modifClasse">Supprimer un élève</button>
+                <button class="suppr" id="supprimerClasse">Supprimer la classe</button>
+            </div>
+            <div class="classRight">
+                <label>Liste des élèves</label>
+                <div class="liste" id="listeEleveModif">
+
+                </div>
+            </div>
+            <button class="navigation retour" go="parametres">&#10143;</button>
+        </div>    
+
+        <div id="supprEleve" class="content">
+            <div id="supprEleveDyna">
+
+            </div>
+            <button class="navigation retour" go="modifClasse">&#10143;</button>
+            <button class="valider">Valider</button>
+        </div>        
+
+        <div id="changeCodeParams" class="content">
+            <div class="entrerCode">
+            <h3>Entrez le nouveau code</h3>
+            <button class="codeParams changecodeParams firstCode">0</button>
+            <button class="codeParams changecodeParams">0</button>
+            <button class="codeParams changecodeParams">0</button>
+            <button class="codeParams changecodeParams lastCode">0</button><br />
+            <button class="ok">OK</button>
+            <button class="navigation retour" go="parametres">&#10143;</button>
+            </div>
+        </div>
+
+        <div id="selectionClass" class="content">
+            <ul id="listeClass">
+
+            </ul>
+            <button class="navigation retour" go="accueil">&#10143;</button>
+            <button class="navigation valider" go="nombreSujets">&#10143;</button>
+        </div>
+
+        <div id="nombreVotant" class="content">
+            <h2>Nombre de votants</h2>
+            <div id="choixVotant">
+                <div id="numVot">15</div>
+                <br/>
+                <button id="moinsVot" class="modifNb">-</button>
+                <button id="plusVot" class="modifNb">+</button>
+
+            </div>
+            <button class="navigation retour" go="accueil">&#10143;</button>
+            <button class="navigation valider" go="nombreSujets">&#10143;</button>
+        </div>
+
+		<div id="nombreSujets" class="content">
+			<h2>Nombre de sujets</h2>
+			<div id="boutons">
+				<button class="choixSujet" value='2'>2</button>
+				<button class="choixSujet selected" value='3'>3</button>
+				<button class="choixSujet" value='4'>4</button>
+				<button class="choixSujet" value='5'>5</button>
+				<button class="choixSujet" value='6'>6</button>
+			</div>
+            <action name="vider_couleursSujets" />
+			<button class="navigation retour" go="accueil">&#10143;</button>
+			<button class="navigation valider" go="couleursSujets">&#10143;</button>
+		</div>
+
+        <div id="couleursSujets" class="content">
+            <h2>Intitules des sujets</h2>
+            <div id="sujets">
+                
+            </div>
+            <button class="navigation retour" go="nombreSujets">&#10143;</button>
+            <button class="navigation valider" go="demarre_vote">&#10143;</button>
+        </div>
+
+        <div id="demarre_vote" class="content">
+            <label>Vote blanc : </label><button id="voteblanc" class="autorise">Autorisé</button>
+            <action name="initGoDemarrerVote" />
+
+            <button class='navigation valider' go="">Démarrer</button>
+            <button class="navigation retour" go="couleursSujets">&#10143;</button>
+        </div>
+
+        <div id="selectionPrenom" class="content">
+            <div id="listeSelectionPrenom">
+
+            </div>
+            <button class="navigation retourAccueil" go="confirmationFinVote">Mettre fin au vote</button>
+            <button class="navigation valider" go="vote">&#10143;</button>
+        </div>
+
+        <div id="confirmationFinVote" class="content">
+            <h2> Voulvez-vous vraiment mettre fin au vote ?
+            <button class="navigation retourAccueil" go="selectionPrenom">Non</button>
+            <button class="navigation valider" go="fin_vote">Oui</button>
+        </div>
+
+        <div id="vote" class="content">
+            <div id="bulletins">
+
+            </div>
+            <button class='navigation valider validation_vote' go='validation_vote'>&#10143;</button>
+        </div>
+
+        <div id="validation_vote" class="content">
+            <h2>A voté !</h2>
+            <button class='navigation valider continuer_vote' go='vote'>&#10143;</button>
+        </div>
+
+        <div id="fin_vote" class="content">
+            <h2>Fin du vote</h2>
+            <button class='navigation bigButton' go='resultats'>Affichage des résultats</button>
+        </div>
+
+        <div id='resultats' class='content'>
+            <div id="affichageResultats" class="choix">
+
+            </div>
+            <button class='navigation retourAccueil' go='verifResultats'>Vérifier les résultats</button>
+            <button class='navigation valider' go='resultatsChiffres'>&#10143;</button>
+        </div>
+
+        <div id='resultatsChiffres' class='content'>
+            <div id="affichageResultatsChiffre" class="choix">
+
+            </div>
+            <button class='navigation retourAccueil' go='verifResultats'>Vérifier les résultats</button>
+            <button class='navigation valider' go='resultatsTableau'>&#10143;</button>
+        </div>
+
+        <div id='resultatsTableau' class='content'>
+            <div id="affichageResultatsTableau" class='choix3'>
+                
+            </div>
+            <button class='navigation retourAccueil' go='verifResultats'>Vérifier les résultats</button>
+            <button class='navigation valider' go='resultats'>&#10143;</button>
+        </div>
+
+        <div id='verifResultats' class='content'>
+            <h2>Résultats finaux</h2>
+            <div></div>
+            <button class='navigation retourAccueil' go='resultats'>Retourner aux résultats</button>
+            <button class='navigation valider' go='accueil'>Accueil</button>
+        </div>
+
+        <!-- Progress bar-->
+        <div id="progressbar"></div>
+
+        <div id="numericInput" >
+            <table id="keypad" >
+                <tr>
+                    <td class="key keyCode">1</td>
+                    <td class="key keyCode">2</td>
+                    <td class="key keyCode">3</td>
+                    <td class="key keyCode">4</td>
+                    <td class="key keyCode">5</td>
+                </tr>
+                <tr>
+                    <td class="key keyCode">6</td>
+                    <td class="key keyCode">7</td>
+                    <td class="key keyCode">8</td>
+                    <td class="key keyCode">9</td>
+                    <td class="key keyCode">0</td> 
+                </tr>
+            </table>    
+        </div>
+
+        <script type="text/javascript">
+            //var db = window.sqlitePlugin.openDatabase({name: "Databases"});
+            var db = window.openDatabase("Databases", "1.0", "Cordova DB", 200000);
+            db.transaction(function(tx) {
+                /*tx.executeSql('DROP TABLE Classe');
+                tx.executeSql('DROP TABLE Eleve');*/
+                tx.executeSql('CREATE TABLE IF NOT EXISTS Classe (id_Classe integer primary key AUTOINCREMENT, nom text)');
+                tx.executeSql('CREATE TABLE IF NOT EXISTS Eleve (id_Eleve integer primary key AUTOINCREMENT, id_classe integer, nom text)');
+            },onDBError);
+
+            function onDBError(error){alert("Database Error : "+error.message);}
+            function onDBSuccess(tx,results){alert("successfull");}
+        </script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/event.js"></script>
+        <script type="text/javascript" src="js/class.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+            function validate(obj) {
+                obj.value=obj.value.replace(/[~#'{[\-|`_\\^@())\]°}=+$£¤¨ù%*µ!§:/;\.,\?<>\'']/ig, '');
+            }
+</script>
+    </body>
+</html>
